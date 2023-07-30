@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to our website</title>
+</head>
+<body>
+    <div class ="container" style="text-align:center">
+        {%include 'navbar.html'%}
+     <h1>This is our offical website.</h1>
+     
+     <form action="/index/" method ="POST">
+        {% csrf_token %}
+     <input type="text" name ="check">
+     <button>send</button>
+     </form>
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio optio nulla veritatis facilis similique magni aliquam beatae ipsa quaerat, nisi asperiores rem voluptatum corrupti quod. Maxime modi hic cupiditate harum reiciendis debitis necessitatibus doloribus, fugit nobis ducimus quam laboriosam aliquam esse, impedit illo optio enim nesciunt, dolorem deleniti cum suscipit.</p>
+     <button>contact us</button>
+     <!--- accesing dynamic values-->
+
+
+     {%if isActive %}
+     <div>
+     <h1>Today date is {{date}}</h1>
+     <h2>name is  {{name}}</h2>
+     <hr>
+     <h1>Student Data</h1>
+     <h2>Student name : {{student_data.student_name}}</h2>
+     <h2>Student college : {{student_data.student_college}}</h2>
+     <h2>Student city : {{student_data.student_city}}</h2>
+     <hr>
+     <h1>Your favourite program </h1>
+     {% for p in list_of_programs%}
+     <h3>{{p}}</h3>
+     {% endfor %}
+     </div>
+     {% endif %}
+    </div>
+</body>
+</html>
